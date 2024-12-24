@@ -19,7 +19,8 @@
     "express": "^4.21.1",
     "express-rate-limit": "^7.4.1",
     "mongodb": "^6.11.0",
-    "mongoose": "^8.8.3"
+    "mongoose": "^8.8.3",
+    "svix": "^1.43.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
