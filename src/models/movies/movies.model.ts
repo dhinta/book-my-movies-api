@@ -5,33 +5,37 @@ import { MovieData } from './movies.types';
 
 const movieSchema = new Schema<MovieData>({
   title: { type: String, required: true },
-  overview: { type: String, required: true },
+  plot: { type: String, required: true },
   languages: {
-    type: [
-      {
-        code: { type: String, required: true },
-        name: { type: String, required: true },
-      },
-    ],
+    type: [String],
     required: true,
-    default: [
-      {
-        code: 'en_US',
-        name: 'English',
-      },
-    ],
+    default: ['English'],
   },
-  posterPath: { type: String, required: true },
-  thumbnailPath: { type: String, required: true },
-  rating: { type: Number, required: true },
-  ratedBy: { type: Number, required: true },
-  likeCount: { type: Number, required: true, default: 0 },
+  poster: { type: String, required: true },
+  fullplot: { type: String, required: true },
+  countries: { type: [String], required: true },
+  imdb: {
+    rating: { type: Number, required: true },
+    votes: { type: Number, required: true },
+  },
+  tomatoes: {
+    viewer: {
+      rating: { type: Number, required: true },
+      numReviews: { type: Number, required: true },
+      meter: { type: Number, required: true },
+    },
+    rating: { type: Number, required: true },
+    numReviews: { type: Number, required: true },
+    meter: { type: Number, required: true },
+  },
   runtime: { type: Number, required: true },
-  releaseDate: { type: Date, required: true },
+  released: { type: Date, required: true },
   genres: { type: [String], required: true },
-  director: { type: String, required: true },
-  casts: { type: [String], required: true },
-  date: { type: Date, default: Date.now },
+  directors: { type: [String], required: true },
+  cast: { type: [String], required: true },
+  writers: { type: [String], required: true },
+  num_mflix_comments: { type: Number, required: true },
+  type: { type: String, required: true },
 });
 
-export const Movie = model<MovieData>('Movie', movieSchema);
+export const Movie = model<MovieData>('movies', movieSchema);

@@ -1,21 +1,32 @@
-interface Language {
-  code: string;
-  name: string;
+interface Imdb {
+  rating: number;
+  votes: number;
+}
+
+interface RottenTomatoes {
+  viewer: {
+    rating: number;
+    numReviews: number;
+    meter: number;
+  };
 }
 
 export interface MovieData {
+  _id: string;
   title: string;
-  overview: string;
-  languages: Language[];
-  posterPath: string;
-  thumbnailPath: string;
-  rating: number;
-  ratedBy: number;
-  likeCount: number;
-  releaseDate: Date;
+  plot: string;
+  languages: string[];
+  poster: string;
+  released: Date;
   genres: string[];
-  director: string;
-  casts: string[];
+  cast: string[];
+  directors: string[];
+  writers: string[];
   runtime: number;
-  date: Date;
+  num_mflix_comments: number;
+  fullplot: string;
+  countries: string[];
+  imdb: Imdb;
+  type: string;
+  tomatoes: RottenTomatoes;
 }
